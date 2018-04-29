@@ -1,3 +1,93 @@
+<!-- <style>
+
+    #topCharts{
+        padding: 18px;
+    }
+
+    #topCharts > div > div > svg{
+        display: block;
+        height: 280px;
+    }
+
+    .chartWrapper{
+        border: solid 1px #c7c7c7;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 18px;
+    }
+
+    .chartLabel{
+        font-size: 1.2em;
+        text-align: center;
+        padding: 4px;
+    }
+
+    .chartHolder{
+
+    }
+
+</style>
+
+<div id="topCharts">
+
+    <div class="chartWrapper">
+        <div class="chartLabel">Workers Per Pool</div>
+        <div class="chartHolder"><svg id="poolWorkers"/></div>
+    </div>
+
+    <div class="chartWrapper">
+        <div class="chartLabel">Hashrate Per Pool</div>
+        <div class="chartHolder"><svg id="poolHashrate"/></div>
+    </div>
+
+    <div class="chartWrapper">
+        <div class="chartLabel">Blocks Pending Per Pool</div>
+        <div class="chartHolder"><svg id="poolBlocks"/></div>
+    </div>
+
+</div>
+
+
+
+<script>
+    document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
     #topCharts{
         padding: 18px;
@@ -89,14 +179,26 @@
 
 
 <div id="topCharts">
-    <div class="chartWrapper">
-        <div class="chartLabel">Pool Historical Hashrate</div>
-        <div class="chartHolder"><svg id="poolHashrate"/></div>
-    </div>
+
+  <div class="chartWrapper">
+      <div class="chartLabel">Workers Per Pool</div>
+      <div class="chartHolder"><svg id="poolWorkers"/></div>
+  </div>
+
+  <div class="chartWrapper">
+      <div class="chartLabel">Hashrate Per Pool</div>
+      <div class="chartHolder"><svg id="poolHashrate"/></div>
+  </div>
+
+  <div class="chartWrapper">
+      <div class="chartLabel">Blocks Pending Per Pool</div>
+      <div class="chartHolder"><svg id="poolBlocks"/></div>
+  </div>
+
 </div>
 
 
-
+<!-- PANEL LEFT BEGIN-->
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 {{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
 <div class="pure-g-r" id="boxesLower">
@@ -111,7 +213,9 @@
                     <div><i class="fa fa-tachometer"></i><span id="statsHashrate{{=pool}}">{{=it.stats.pools[pool].hashrateString}}</span> (Now)</div>
 					<div><i class="fa fa-tachometer"></i><span id="statsHashrateAvg{{=pool}}">...</span> (Avg)</div>
 					<div><i class="fa fa-gavel"></i>Luck <span id="statsLuckDays{{=pool}}">{{=it.stats.pools[pool].luckDays}}</span> Days</div>
-                    <div><i class="fa fa-chart-bar"></i><span id="statsHashPercent{{=pool}}">
+
+<!-- REMOVE: NOT WORK BEGIN -->
+                    <!-- <div><i class="fa fa-line-chart"></i><span id="statsHashPercent{{=pool}}">
 {{
     var percent=0.0;
     if(it.stats.pools[pool].hashrate == 0 ) {
@@ -120,14 +224,17 @@
         percent=it.stats.pools[pool].hashrate / it.stats.pools[pool].poolStats.networkSols * 100;
     }
 }}
-                    {{=percent.toFixed(5)}}</span> %</div>
+                    {{=percent.toFixed(5)}}</span> %</div> -->
+<!-- NOT WORK END -->
+
                 </div>
             </div>
         </div>
     </div>
+<!-- PANEL LEFT END -->
 
 
-
+<!-- PANEL RIGHT BEGIN -->
     <div class="pure-u-1-2">
         <div class="boxStats" id="boxStatsRight">
 			<div class="boxLowerHeader">{{=capitalizeFirstLetter(it.stats.pools[pool].name)}} Network Stats</div>
@@ -143,8 +250,11 @@
     </div>
 	{{ } }}
 </div>
+<!-- PANEL RIGHT END -->
 
 
+
+<!-- PANEL: BITZENY Blocks Found BEGIN -->
 {{ for(var pool in it.stats.pools) { }}
 {{ var blockscomb = new Array; }}
 <div class="pure-g-r" id="boxesLower">
@@ -162,12 +272,17 @@
 			{{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
 				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
 					<small>Block:</small>
-					{{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
+
+
+<!-- REMOVE ANOTHER COINS -->
+					<!-- {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
 						<a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
 						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else if (String(it.stats.pools[pool].name).startsWith("hush")) { }}
-						<a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+						<a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a> -->
+
+<!-- ADD BITZENY -->
                     {{ } else if (String(it.stats.pools[pool].name).startsWith("bitzeny")) { }}
                         <a href="https://insight.bitzeny.jp/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
@@ -221,17 +336,19 @@
         </div>
     </div>
 </div>
+<!-- PANEL: BITZENY Blocks Found END -->
 
 
-<center><div id="bottomCharts{{=pool}}" style="text-align:center;" align="center">
+
+<!-- <center><div id="bottomCharts{{=pool}}" style="text-align:center;" align="center">
     <div class="chartWrapper" style="text-align:center;">
         <div class="chartLabel">Finders of the last {{=blockscomb.length}} blocks</div>
         <div class="hidden" id="tooltip{{=pool}}"><p><span id="value{{=pool}}"></span> blocks found by <span id="finderr{{=pool}}"></span></p></div>
         <div class="chartHolder" id="pie{{=pool}}"><svg id="blocksPie{{=pool}}" style="display: block; margin: auto; text-align:center;"/></div>
     </div>
-</div></center>
+</div></center> -->
 
-<script>
+<!-- <script>
 
 var groupedByFinder = {};
 var data = [];
@@ -338,10 +455,10 @@ legend.append('text')
 
 <script>
     document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
-</script>
+</script> -->
 
 
-<script>
+<!-- <script>
 	window.statsSource = new EventSource("/api/live_stats");
     $(function() {
         statsSource.addEventListener('message', function (e) {
@@ -374,4 +491,4 @@ legend.append('text')
 		hashrate = (hashrate/1000) / Math.pow(1000, i + 1);
 		return hashrate.toFixed(2) + byteUnits[i];
 	}
-</script>
+</script> -->
