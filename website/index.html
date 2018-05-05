@@ -1,100 +1,148 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Semi-Pool: Bitzeny mining</title>
 
-    <link rel="icon" type="image/png" href="/static/favicon.png"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Shrikhand" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap4-retro.min.css">
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.4.2/pure-min.css">
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js"></script>
-    <script src="/static/nvd3.js"></script>
-    <link rel="stylesheet" href="/static/nvd3.css">
-
-    <script src="/static/main.js"></script>
-    <link rel="stylesheet" href="/static/style.css">
-
-    <title>ZNY-NOMP</title>
-
-</head>
-
-<body>
-
-<header>
-    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
-
-        <a class="pure-menu-heading hot-swapper" href="/"><i class="fa fa-home"></i>&nbsp;ZNY-NOMP</a>
-
-        <ul>
-            <li class="{{? it.selected === 'getting_started' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/getting_started">
-                    <i class="fa fa-rocket"></i>&nbsp;
-                    Getting Started
-                </a>
-            </li>
-            <li class="{{? it.selected === 'stats' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/stats">
-                    <i class="fa fa-bar-chart-o"></i>&nbsp;
-                    Graph Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'tbs' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/tbs">
-                    <i class="fa fa-table"></i>&nbsp;
-                    Tab Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'workers' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/workers">
-                    <i class="fa fa-cogs"></i>&nbsp;
-                    Workers Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'api' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/api">
-                    <i class="fa fa-code"></i>&nbsp;
-                    API
-                </a>
-            </li>
-        </ul>
+  </head>
+  <body>
+  
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger">
+  <a class="navbar-brand text-white" href="#"><strong>#&nbsp;Semi Pool</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <ul class="nav navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="#">Grasph Stats<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Tab Stats</a>
+      </li>
+      <li class="nav-item text-white">
+        <a class="nav-link text-white" href="#">Workers Stats</a>
+      </li>
+            <li class="nav-item text-white">
+        <a class="nav-link text-white" href="#">API</a>
+      </li>
+            <li class="nav-item text-white">
+        <a class="nav-link text-white" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="jumbotron bg-secondary text-center text-danger mb-0 radius-0" style="padding-bottom: 0px; padding-top: 7em;">
+  <div class="container">
+    <div class="ht-tm-header">
+      <h1 class="display-1 display-xxl text-uppercase">Semi-pool.</h1>
+      <span class="lead">Mining pool for BitZeny ver 2.</span><br><br><br>
+        <img style="max-width: 100%; height: auto;" src="/image/main-semi1.png" class="rounded mx-auto d-block" alt="main semi image">
     </div>
-</header>
-
-<main>
-    {{=it.page}}
-</main>
+  </div>
+</div>
 
 
-<footer>
+    <div class="container py-3" style="max-width: 70em;">
+	<div class="row">
+	<div class="col-lg-9">
+<h3>当プールはBitzenyウォレットの2.xへのアップグレードを強く推奨しております。</h3>
+<p>BitZenyでは、ブロック高1206400を超えますと、BitZeny 1.x が生成したブロックは2.xのウォレットではrejectされます。<br>
+弊プールに限らず、各プールや取引所では、2.xに変更済みのところがほとんどとなります。<br>
+1.xを使っている方、またはどのバージョンを使っているかわからない方は、以下の手順に沿ってウォレットをアップグレードしましょう！<br>
+  <a href="http://janmemo3710.blog.fc2.com/blog-entry-31.html" target="_blank">ウォレット差し替え方法についてはこちらで確認可能です。</a></p>
+		<hr/>
+<h3>About</h3>
+<p>当プールはユーザー登録不要で掘れるBitZenyマイニングプールです。<br>
+  <strong>0.05ZNY</strong>以上の採掘高があれば、<strong>60分ごと</strong>にあなたのBitZenyアドレスに払い出されます。<br>
+  現在のマイニング手数料は1%です。</p>
+<p>This pool is a BitZeny mining pool that can be digged without user registration.<br>
+If there is a mining height of<strong> 0.05 ZNY </strong>or more, it will be paid out to your ZNY address every <strong>60 minutes</strong>.<br>
+Current mining fee is 1%.</p>
 
-    <div>
-        <!-- This site is powered by the open source&nbsp;<a target="_blank" href="https://github.com/zone117x/node-open-mining-portal/">NOMP</a>&nbsp;
-        project created by Matthew Little and licensed under the&nbsp;<a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL</a> -->
-        This site is powered by the open source <a target="_blank" href="https://github.com/cryptozeny/zny-nomp">ZNY-NOMP</a> project forked by cryptozeny and licensed under the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a><br>
-        <!-- Credits by zone117x, movrcx, yoshuki43, ROZ-MOFUMOFU-ME and many others <br> -->
+<p>
+(秘)ひねればZNYが出てくる「<a href="http://daddy.starfree.jp">Daddyの蛇口</a>」はこちら。
+</p>
+
+<hr/>
+		<table class="small">
+			<tr>
+			<th>▼CPUの速さ</th>
+			<th>▼Diff</th>
+			<th>▼マイニング接続先</th>
+			</tr>
+			<tr>
+			<td>スマホなど</td>
+				<td>0.001~0.1(start 0.01)</td>
+			<td>minerd -a yescrypt -o stratum+tcp://zny.daddy-pool.work:15020 -u あなたのZenyアドレス</td>
+			</tr>
+			<tr>
+			<td>PC</td>
+				<td>0.05~3 (start 0.5)</td>
+			<td>minerd -a yescrypt -o stratum+tcp://zny.daddy-pool.work:15021 -u あなたのZenyアドレス</td>
+			</tr>
+			<tr>
+			<td>MiningFarm</td>
+				<td>3~20 (start 5)</td>
+			<td>minerd -a yescrypt -o stratum+tcp://zny.daddy-pool.work:15022 -u あなたのZenyアドレス</td>
+			</tr>              
+			<tr>
+              <td>固定Diff</td>
+              <td>0.02</td>
+              <td>minerd -a yescrypt -o stratum+tcp://zny.daddy-pool.work:15023 -u あなたのZenyアドレス</td>
+          </tr>
+			              <tr>
+			                <td>固定Diff</td>
+			                <td>1</td>
+			                <td>minerd -a yescrypt -o stratum+tcp://zny.daddy-pool.work:15024 -u あなたのZenyアドレス</td>
+          </tr>
+			              <tr>
+			                <td>固定Diff</td>
+			                <td>5</td>
+			                <td>minerd -a yescrypt -o stratum+tcp://zny.daddy-pool.work:15025 -u あなたのZenyアドレス</td>
+          </tr>
+		</table>
+		  <p><strong>例：</strong>minerd -a yescrypt -o stratum+tcp://zny.daddy-pool.work:15021 -u ZrVLRVeLx9MTkETu8hMk3U2ZKao5Jx4ayC</p>
+		  <p><a href="http://janmemo3710.blog.fc2.com/blog-entry-6.html" target="_blank">マイニングの方法（手順や利用ソフトウェア）についてはこちらをご覧ください。</a></p>
+		  <p>欲しい難易度のポートがあれば、TwitterまたはDiscordにてご相談ください。</p>
+        </div>
     </div>
-    <div>
-        <!-- <i class="fa fa-heart"></i>&nbsp; Support this project by donating&nbsp;<i class="fa fa-btc"></i>&nbsp;BTC: 1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR -->
-        <i class="fa fa-heart"></i>&nbsp; Support this project by donating&nbsp;&nbsp;<i class="fa fa-bolt"></i>&nbsp; ZNY: &nbsp;ZyWJL5qp3qZQW85HVoT3ba2feJYsZ7aQ2v
-    </div>
-    <div id="communityFooter">
-        <!-- Community&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank" href="https://kiwiirc.com/client/irc.freenode.net/nomp">#nomp IRC</a> -->
-        Community&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank" href="http://gall.dcinside.com/m/bitzeny">비트제니 마이너 갤러리</a>
-        <!-- &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a target="_blank" href="http://reddit.com/r/nomp">/r/nomp</a> -->
-        &nbsp;|&nbsp;
-        <!-- <iframe src="http://ghbtns.com/github-btn.html?user=zone117x&repo=node-open-mining-portal&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe> -->
-        <iframe src="http://ghbtns.com/github-btn.html?user=cryptozeny&repo=zny-nomp&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe>
-    </div>
+</div>
 
-</footer>
+<div class="container py-4">
+    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="990" data-base="KRW" data-secondary="BTC" data-ticker="true" data-rank="false" data-marketcap="true" data-volume="true" data-stats="USD" data-statsticker="false" style="max-width: 420px;">
+    </div>
+    <a class="twitter-timeline" data-width="420" data-height="730" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/9werty60y?ref_src=twsrc%5Etfw">Tweets by 9werty60y</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 
-</body>
+
+  <div class="container py-5">
+    <h3><strong># Semi pool</strong></h3>
+      <p>(세미 풀)</p>
+      <p><strong>CONTACT</strong><br>
+          Mail. <a href="#">abc@mail.com</a><br>
+          Twitter. <a href="#">@abc</a><br>
+          Discord. <a href="#">https://abc link</a></p>
+      <p>Support this project by donating &#58;&#41;<br>㉤Bitzeny: 제니 주소</p>
+      <p>Copyright 2018 <a href="#">'세미 풀'</a> info All rights reserved.<br>
+    <a href="http://bitzeny.org/">http://Bitzeny.org</a></p>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    </body>
 </html>
