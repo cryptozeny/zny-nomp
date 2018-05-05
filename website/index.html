@@ -1,100 +1,165 @@
-<!doctype html>
+<!-- TODO:
 
+favicon 안들어감
+그래프스탯 그래프가 안나옴
+
+ -->
+
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>세미풀</title>
 
-    <link rel="icon" type="image/png" href="/static/favicon.png"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Shrikhand" rel="stylesheet">
+<link rel="stylesheet" href="/static/bootstrap4-retro.min.css">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.4.2/pure-min.css">
+<!-- NOMP  -->
+<link rel="icon" type="image/png" href="/static/favicon.png"/>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js"></script>
-    <script src="/static/nvd3.js"></script>
-    <link rel="stylesheet" href="/static/nvd3.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.4.2/pure-min.css">
 
-    <script src="/static/main.js"></script>
-    <link rel="stylesheet" href="/static/style.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
-    <title>ZNY-NOMP</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js"></script>
+<script src="/static/nvd3.js"></script>
+<link rel="stylesheet" href="/static/nvd3.css">
 
-</head>
+<script src="/static/main.js"></script>
+<link rel="stylesheet" href="/static/style.css">
 
-<body>
+  </head>
+  <body>
 
+
+
+
+
+
+<!-- TOP NAVIGATION -->
 <header>
-    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
 
-        <a class="pure-menu-heading hot-swapper" href="/"><i class="fa fa-home"></i>&nbsp;ZNY-NOMP</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+        aria-label="Toggle navigation" style="">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">SEMI POOL</a>
 
-        <ul>
-            <li class="{{? it.selected === 'getting_started' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/getting_started">
-                    <i class="fa fa-rocket"></i>&nbsp;
-                    Getting Started
-                </a>
-            </li>
-            <li class="{{? it.selected === 'stats' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/stats">
-                    <i class="fa fa-bar-chart-o"></i>&nbsp;
-                    Graph Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'tbs' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/tbs">
-                    <i class="fa fa-table"></i>&nbsp;
-                    Tab Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'workers' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/workers">
-                    <i class="fa fa-cogs"></i>&nbsp;
-                    Workers Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'api' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/api">
-                    <i class="fa fa-code"></i>&nbsp;
-                    API
-                </a>
-            </li>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+
+          <!-- <li class="nav-item active">
+            <a class="nav-link" href="#!">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li> -->
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/getting_started">시작하기</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/stats">그래프스탯</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/tbs">탭스탯</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/workers">워커스탯</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/api">API</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#!">Disabled</a>
+          </li>
+
         </ul>
-    </div>
+      </div>
+    </nav>
+
+
 </header>
+
+
+
+
+
+
+<div class="jumbotron bg-secondary text-center text-danger mb-0 radius-0">
+  <div class="container">
+    <div class="ht-tm-header">
+      <h1 class="display-1 display-xxl text-uppercase">SEMI-POOL</h1>
+      <span class="lead">BitZeny Mining Pool</span>
+
+      <div class="mt-4">
+        <a href="#!"
+          target="_blank"
+          class="btn btn-danger btn-lg m-2 text-secondary btn-ht-dl-message">
+          <span>CPU Miner</span>
+        </a>
+
+        <a href="#!"
+          target="_blank"
+          class="btn btn-danger text-secondary btn-lg m-2">
+          <span>BitZeny Wallet</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+<img style="max-width: 100%; height: auto;" src="/static/main-semi1.png" class="rounded mx-auto d-block" alt="main-semi1.png">
+
+</div>
+
+
+
 
 <main>
     {{=it.page}}
 </main>
 
 
-<footer>
 
-    <div>
-        <!-- This site is powered by the open source&nbsp;<a target="_blank" href="https://github.com/zone117x/node-open-mining-portal/">NOMP</a>&nbsp;
-        project created by Matthew Little and licensed under the&nbsp;<a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL</a> -->
-        This site is powered by the open source <a target="_blank" href="https://github.com/cryptozeny/zny-nomp">ZNY-NOMP</a> project forked by cryptozeny and licensed under the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a><br>
-        <!-- Credits by zone117x, movrcx, yoshuki43, ROZ-MOFUMOFU-ME and many others <br> -->
-    </div>
-    <div>
-        <!-- <i class="fa fa-heart"></i>&nbsp; Support this project by donating&nbsp;<i class="fa fa-btc"></i>&nbsp;BTC: 1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR -->
-        <i class="fa fa-heart"></i>&nbsp; Support this project by donating&nbsp;&nbsp;<i class="fa fa-bolt"></i>&nbsp; ZNY: &nbsp;ZyWJL5qp3qZQW85HVoT3ba2feJYsZ7aQ2v
-    </div>
-    <div id="communityFooter">
-        <!-- Community&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank" href="https://kiwiirc.com/client/irc.freenode.net/nomp">#nomp IRC</a> -->
-        Community&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank" href="http://gall.dcinside.com/m/bitzeny">비트제니 마이너 갤러리</a>
-        <!-- &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a target="_blank" href="http://reddit.com/r/nomp">/r/nomp</a> -->
-        &nbsp;|&nbsp;
-        <!-- <iframe src="http://ghbtns.com/github-btn.html?user=zone117x&repo=node-open-mining-portal&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe> -->
-        <iframe src="http://ghbtns.com/github-btn.html?user=cryptozeny&repo=zny-nomp&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe>
-    </div>
 
-</footer>
 
-</body>
+
+<!-- FOOT CONTACTS -->
+  <div class="container py-5">
+    <h1>Thanks</h1>
+
+    <p>마이닝풀 오픈 준비중 입니다! 자세한 사항은 커뮤니티를 참고하세요:<br>
+    <a href="http://gall.dcinside.com/m/bitzeny">http://gall.dcinside.com/m/bitzeny</a></p>
+
+
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<!-- 제이쿼리: 앞에서 제이쿼리 2.1.0 쓰기에 이거(3.3.1) 쓰면안됨 -->
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<!-- 제이쿼리: 신버젼 쓰지말것 -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+  </body>
+
 </html>
