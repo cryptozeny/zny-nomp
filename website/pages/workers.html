@@ -41,24 +41,41 @@
         <div class="chartLabel">{{=it.stats.pools[pool].name}}</div>
 
             <table class="table table-hover">
-                <thead style="border-top: 1px solid #dee2e6;">
-                  <!-- 모바일대응 줄바꿈 BEGIN-->
+
+                <!-- 모바일대응 줄바꿈 BEGIN-->
+                <!-- <thead style="border-top: 1px solid #dee2e6;">
                   <tr><th>Address</th></tr>
                   <tr><th>Shares</th></tr>
                   <tr><th>Invalid shares</th></tr>
                   <tr><th>Efficiency</th></tr>
                   <tr><th>Hashrate</th></tr>
-                  <!-- 모바일대응 줄바꿈 END -->
-                </thead>
+                </thead> -->
+
+
                 {{ for(var worker in it.stats.pools[pool].workers) { }}
                    {{var workerstat = it.stats.pools[pool].workers[worker];}}
                     <tr class="table table-hover">
                       <!-- 모바일대응 줄바꿈 BEGIN -->
-                        <tr><td>{{=worker}}</td></tr>
-                        <tr><td>{{=Math.floor(workerstat.shares)}}</td></tr>
-                        <tr><td>{{=Math.floor(workerstat.invalidshares)}}</td></tr>
-                        <tr><td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td></tr>
-                        <tr><td>{{=workerstat.hashrateString}}</td></tr>
+                        <tr><td>
+                          Address:
+                          {{=worker}}
+                        </td></tr>
+                        <tr><td>
+                          Shares:
+                          {{=Math.floor(workerstat.shares)}}
+                        </td></tr>
+                        <tr><td>
+                          Invalid shares:
+                          {{=Math.floor(workerstat.invalidshares)}}
+                        </td></tr>
+                        <tr><td>
+                          Efficiency:
+                          {{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}
+                        </td></tr>
+                        <tr><td>
+                          Hashrate:
+                          {{=workerstat.hashrateString}}
+                        </td></tr>
                       <!-- 모바일대응 줄바꿈 END -->
                     </tr>
                 {{ } }}
