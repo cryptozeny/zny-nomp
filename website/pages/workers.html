@@ -57,24 +57,29 @@
                     <tr class="table table-hover">
                       <!-- 모바일대응 줄바꿈 BEGIN -->
                         <tr><td>
-                          Address:
-                          {{=worker}}
-                        </td></tr>
-                        <tr><td>
-                          Shares:
-                          {{=Math.floor(workerstat.shares)}}
-                        </td></tr>
-                        <tr><td>
-                          Invalid shares:
-                          {{=Math.floor(workerstat.invalidshares)}}
-                        </td></tr>
-                        <tr><td>
-                          Efficiency:
-                          {{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}
-                        </td></tr>
-                        <tr><td>
-                          Hashrate:
-                          {{=workerstat.hashrateString}}
+                          <font size="2">Address:</font>
+                          <font size="2"><tt><a href="/workers/{{=worker.split('.')[0]}}">{{=worker}}</a></tt></font>
+                          <!-- {{=worker}} -->
+                          <font size="2">&nbsp|&nbsp</font>
+                        <!-- </td></tr>
+                        <tr><td> -->
+                          <font size="2">Shares:</font>
+                          <font size="3"><tt>{{=Math.floor(workerstat.shares)}}</tt></font>
+                          <font size="2">&nbsp|&nbsp</font>
+                        <!-- </td></tr>
+                        <tr><td> -->
+                          <font size="2">Invalid shares:</font>
+                          <font size="3"><tt>{{=Math.floor(workerstat.invalidshares)}}</tt></font>
+                          <font size="2">&nbsp|&nbsp</font>
+                        <!-- </td></tr>
+                        <tr><td> -->
+                          <font size="2">Efficiency:</font>
+                          <font size="3"><tt>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}} </tt></font>
+                          <font size="2">&nbsp|&nbsp</font>
+                        <!-- </td></tr>
+                        <tr><td> -->
+                          <font size="2">Hashrate:</font>
+                          <font size="3"><tt>{{=workerstat.hashrateString}}</tt></font>
                         </td></tr>
                       <!-- 모바일대응 줄바꿈 END -->
                     </tr>
