@@ -1,64 +1,55 @@
-<style>
 
-    #topCharts {
-        padding: 18px;
-    }
+<table class="table table-hover" style="margin: auto;">
 
-    #topCharts > div > div > svg {
-        display: block;
-        height: 280px;
-    }
-
-    .chartWrapper {
-        border: solid 1px #c7c7c7;
-        border-radius: 5px;
-        padding: 5px;
-        margin-bottom: 18px;
-    }
-
-    .chartLabel {
-        font-size: 1.2em;
-        text-align: center;
-        padding: 4px;
-    }
-
-    .chartHolder {
-
-    }
-
-    table {
-        width: 100%;
-    }
-
-</style>
-
-<table class="pure-table">
-    <thead>
+      <thead>
     <tr>
-        <th>Pool</th>
-        <th>Algo</th>
-        <th>Workers</th>
-        <th>Valid Shares</th>
-        <th>Invalid Shares</th>
-        <th>Total Blocks</th>
-        <th>Pending</th>
-        <th>Confirmed</th>
-        <th>Orphaned</th>
-        <th>Hashrate</th>
+      <th>#</th>
+      <th></th>
     </tr>
-    </thead>
-    {{ for(var pool in it.stats.pools) { }}
-    <tr class="pure-table-odd">
-        <td>{{=it.stats.pools[pool].name}}</td>
-        <td>{{=it.stats.pools[pool].algorithm}}</td>
-        <td>{{=Object.keys(it.stats.pools[pool].workers).length}}</td>
-        <td>{{=it.stats.pools[pool].poolStats.validShares}}</td>
-        <td>{{=it.stats.pools[pool].poolStats.invalidShares}}</td>
-        <td>{{=it.stats.pools[pool].poolStats.validBlocks}}</td>
-        <td>{{=it.stats.pools[pool].blocks.pending}}</td>
-        <td>{{=it.stats.pools[pool].blocks.confirmed}}</td>
-        <td>{{=it.stats.pools[pool].blocks.orphaned}}</td>
-        <td>{{=it.stats.pools[pool].hashrateString}}</td>
+  </thead>
+  <tbody>
+       {{ for(var pool in it.stats.pools) { }}
+    <tr>
+      <th scope="row">Pool</th>
+      <td>{{=it.stats.pools[pool].name}}</td>
     </tr>
-    {{ } }}
+    <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Algo</th>
+      <td style="border-top: 1px solid #dee2e6;">{{=it.stats.pools[pool].algorithm}}</td>
+    </tr>
+        <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Workers</th>
+      <td style="border-top: 1px solid #dee2e6;">{{=Object.keys(it.stats.pools[pool].workers).length}}</td>
+    </tr>
+        <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Valid Shares</th>
+        <td style="border-top: 1px solid #dee2e6;">{{=it.stats.pools[pool].poolStats.validShares}}</td>
+    </tr>
+        <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Invalid Shares</th>
+      <td style="border-top: 1px solid #dee2e6;">{{=it.stats.pools[pool].poolStats.invalidShares}}</td>
+    </tr>
+        <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Total Blocks</th>
+      <td style="border-top: 1px solid #dee2e6;">{{=it.stats.pools[pool].poolStats.validBlocks}}</td>
+    </tr>
+        <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Pending</th>
+      <td style="border-top: 1px solid #dee2e6;">{{=it.stats.pools[pool].blocks.pending}}</td>
+    </tr>
+        <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Confirmed</th>
+      <td style="border-top: 1px solid #dee2e6;">{{=it.stats.pools[pool].blocks.confirmed}}</td>
+    </tr>
+        <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Orphaned</th>
+      <td style="border-top: 1px solid #dee2e6;">{{=it.stats.pools[pool].blocks.orphaned}}</td>
+    </tr>
+        <tr>
+      <th scope="row" style="border-top: 1px solid #dee2e6;">Hashrate</th>
+      <td style="border-top: 1px solid #dee2e6;">{{=it.stats.pools[pool].hashrateString}}</td>
+    </tr>
+        {{ } }}
+  </tbody>
+  
 </table>

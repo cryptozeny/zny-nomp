@@ -11,7 +11,7 @@ favicon 안들어감
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>세미풀</title>
+    <title>세미-풀</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -21,7 +21,7 @@ favicon 안들어감
 <!-- NOMP  -->
 <link rel="icon" type="image/png" href="/static/favicon.png"/>
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Song+Myung" rel="stylesheet" type='text/css'>
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
@@ -37,7 +37,7 @@ favicon 안들어감
 <link rel="stylesheet" href="/static/style.css">
 
   </head>
-  <body>
+  <body style="align-content: center;">
 
 
 
@@ -45,77 +45,61 @@ favicon 안들어감
 
 
 <!-- TOP NAVIGATION -->
-<header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-        aria-label="Toggle navigation" style="">
+     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger">
+      <a class="navbar-brand text-white" href="/"><strong>세미-풀</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="/">SEMI POOL</a>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-
-          <!-- <li class="nav-item active">
-            <a class="nav-link" href="#!">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li> -->
-
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="nav navbar-nav" style="margin: 0px;">
           <li class="nav-item active">
-            <a class="nav-link" href="/getting_started">시작하기</a>
+            <a class="nav-link text-white" href="/getting_started">시작하기</a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="/stats">그래프스탯</a>
+            <a class="nav-link text-white" href="/stats">그래프 통계</a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="/tbs">탭스탯</a>
+            <a class="nav-link text-white" href="/tbs">상태 테이블</a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="/workers">워커스탯</a>
+            <a class="nav-link text-white" href="/workers">채굴자 현황</a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="/api">API</a>
+            <a class="nav-link text-white" href="/api">API</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#!">Disabled</a>
-          </li>
-
         </ul>
       </div>
     </nav>
-
-
-</header>
-
+    
 
 
 
 
 
-<div class="jumbotron bg-secondary text-center text-danger mb-0 radius-0">
+<div class="jumbotron bg-secondary text-center text-danger mb-0 radius-0" style="padding-bottom: 0px; padding-top: 7em">
   <div class="container">
     <div class="ht-tm-header">
-      <h1 class="display-1 display-xxl text-uppercase">SEMI-POOL</h1>
+      <h1 class="display-1 display-xxl text-uppercase" style="margin:.1em 0px 7px">SEMI-POOL</h1>
       <span class="lead">BitZeny Mining Pool</span>
 
       <div class="mt-4">
         <a href="https://github.com/cryptozeny/cpuminer"
           target="_blank"
-          class="btn btn-danger btn-lg m-2 text-secondary btn-ht-dl-message">
+          class="btn btn-danger btn-lg m-2 text-white btn-ht-dl-message">
+        <span class="fa fa-download mr-xl-2"></span>
           <span>CPU Miner</span>
         </a>
 
         <a href="https://github.com/BitzenyCoreDevelopers/bitzeny/releases/tag/z2.0.1"
           target="_blank"
-          class="btn btn-danger text-secondary btn-lg m-2">
+          class="btn btn-danger text-white btn-lg m-2">
+        <span class="fa fa-download mr-xl-2"></span>
           <span>BitZeny Wallet</span>
         </a>
 
@@ -129,7 +113,6 @@ favicon 안들어감
 
 
 
-
 <main>
     {{=it.page}}
 </main>
@@ -138,16 +121,16 @@ favicon 안들어감
 
 
 
-
 <!-- FOOT CONTACTS -->
-  <div class="container py-5">
-    <h1>Thanks</h1>
-
-    <p>마이닝풀 오픈 준비중 입니다! 자세한 사항은 커뮤니티를 참고하세요:<br>
-    <a href="http://gall.dcinside.com/m/bitzeny">http://gall.dcinside.com/m/bitzeny</a></p>
-
-
-  </div>
+     <div class="jumbotron bg-secondary text-center text-danger mb-0 radius-0">
+  <div class="lead">현재 오픈 준비중 입니다! 자세한 사항은 커뮤니티를 참고하세요.</div>
+  
+  <a href="http://gall.dcinside.com/m/bitzeny"
+     target="_blank"
+     class="btn btn-outline-danger ml-1 btn-lg btn-hover-text-secondary my-4 text-left">
+    <span>DC 비트제니 갤러리</span>
+  </a>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,16 +1,16 @@
 <style>
     #boxWelcome{
-        background-color: #0eafc7;
+        background-color: #ff9d03;
         color: white;
         margin: 18px;
     }
     #logoImg{
         height: 285px;
-        margin: 55px;
+        margin: 0px;
     }
     #welcomeText{
-        font-size: 2.7em;
-        margin: 50px 18px 10px 18px;
+        font-size: 1.8em;
+        margin: 18px 18px 10px 18px;
     }
     #welcomeItems{
         list-style-type: none;
@@ -41,13 +41,13 @@
 
 
     #boxStatsLeft{
-        background-color: #b064e1;
+        background-color: #cccccc;
     }
     #boxStatsRight{
-        background-color: #10bb9c;
+        background-color: #cccccc;
     }
     .boxStats{
-        color: white;
+        color: ;
     }
     .boxStatsList{
         display: flex;
@@ -69,30 +69,46 @@
     .boxStatsList > div > div{
         padding: 3px;
     }
-
+    .rounded {
+      border-radius: 1em;
+    }
 
 </style>
 
 
-<div class="pure-g-r" id="boxWelcome">
-    <div class="pure-u-1-3">
-        <img id="logoImg" src="/static/logo.svg">
-    </div>
-    <div class="pure-u-2-3">
-        <div id="welcomeText">Welcome to the future of mining</div>
+<div class="pure-g-r rounded" id="boxWelcome">
+    
+    <div class="pure-u-2-3" style="margin:auto; text-align:center">
+        <div id="welcomeText" style="margin-top: 38px;">'세미-풀'은 Bitzeny 지갑 버전 '2.x'을 권장합니다.</div>
         <ul id="welcomeItems">
-            <li>Low fees</li>
-            <li>High performance Node.js backend</li>
-            <li>User friendly mining client</li>
-            <li>Multi-coin / multi-pool</li>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </ul><img id="logoImg" src="/static/semi2.png">
+    </div>
+    
+    <div class="pure-u-2-3" style="margin: auto; text-align:center"><hr style="margin-top: 0px;">
+        <div id="welcomeText" style="margin-top: 38px;">공식 트위터에서 최신 소식을 확인하세요!</div>
+        <ul id="welcomeItems">
+            <p>다양한 정보 찌라시 등등,, ㅋㅋㅋ
+            </p>
         </ul>
     </div>
+
+    <div class="pure-u-1-2" style="margin: auto; padding: 1em;">
+        <div class="boxStats rounded" id="boxStatsLeft" >
+<a class="twitter-timeline" data-width="524" data-height="600" data-theme="light" data-link-color="#FAB81E" href="https://twitter.com/semipool_kr?ref_src=twsrc%5Etfw">Tweets by semipool_kr</a>
+   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" style="margin-right: 3px;"></script>
+        </div>
+    </div>
+
 </div>
+   
+
 
 <div class="pure-g-r" id="boxesLower">
 
     <div class="pure-u-1-2">
-        <div class="boxStats" id="boxStatsLeft">
+        <div class="boxStats rounded" id="boxStatsLeft">
             <div class="boxLowerHeader">Global Stats</div>
             <div class="boxStatsList">
                 {{ for(var algo in it.stats.algos) { }}
@@ -107,7 +123,7 @@
     </div>
 
     <div class="pure-u-1-2">
-        <div class="boxStats" id="boxStatsRight">
+        <div class="boxStats rounded" id="boxStatsRight">
             <div class="boxLowerHeader">Pools / Coins</div>
             <div class="boxStatsList">
                 {{ for(var pool in it.stats.pools) { }}

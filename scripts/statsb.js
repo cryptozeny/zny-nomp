@@ -104,6 +104,7 @@ var updateChartB = function () {
 updateChartB();
 setInterval(updateChartB, 30000);
 
+
 /*
 statsSource.addEventListener('message', function(e){
     var stats = JSON.parse(e.data);
