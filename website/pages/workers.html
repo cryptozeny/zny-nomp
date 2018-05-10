@@ -42,13 +42,13 @@
 
             <table class="table table-hover">
                 <thead style="border-top: 1px solid #dee2e6;">
-                <tr>
-                    <th>Address</th>
-                    <th>Shares</th>
-                    <th>Invalid shares</th>
-                    <th>Efficiency</th>
-                    <th>Hashrate</th>
-                </tr>
+                  <!-- 모바일대응 줄바꿈 BEGIN-->
+                  <tr><th>Address</th></tr>
+                  <tr><th>Shares</th></tr>
+                  <tr><th>Invalid shares</th></tr>
+                  <tr><th>Efficiency</th></tr>
+                  <tr><th>Hashrate</th></tr>
+                  <!-- 모바일대응 줄바꿈 END -->
                 </thead>
                 {{ for(var worker in it.stats.pools[pool].workers) { }}
                    {{var workerstat = it.stats.pools[pool].workers[worker];}}
