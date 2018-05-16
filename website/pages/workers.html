@@ -1,87 +1,111 @@
 <style>
-
     #topCharts {
         padding: 18px;
     }
-
     #topCharts > div > div > svg {
         display: block;
         height: 280px;
     }
-
     .chartWrapper {
         border: solid 1px #c7c7c7;
         border-radius: 5px;
         padding: 5px;
         margin-bottom: 18px;
     }
-
     .chartLabel {
         font-size: 1.2em;
         text-align: center;
         padding: 4px;
     }
-
     .chartHolder {
-
     }
-
     table {
         width: 100%;
     }
-
 </style>
 
 
+
+<!-- <table class="table table-responsive">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Address</th>
+      <th>Shares</th>
+      <th>Invalid Shares</th>
+      <th>Efficiency</th>
+      <th>Hashrate</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>세미</td>
+      <td>하미</td>
+      <td>두루미</td>
+      <td>고소미</td>
+      <td>미미</td>
+    </tr>
+  </tbody>
+
+</table> -->
+
+
+
+
+
 <div id="topCharts">
-
 {{ for(var pool in it.stats.pools) { }}
-
     <div class="chartWrapper">
         <div class="chartLabel">{{=it.stats.pools[pool].name}}</div>
+            <table class="table table-responsive">
 
-            <table class="table table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Address</th>
+                  <th>Shares</th>
+                  <th>Invalid</th>
+                  <th>Efficiency</th>
+                  <th>Hashrate</th>
+                  <!-- <th>마지막</th> -->
+                </tr>
+              </thead>
 
-                <!-- 모바일대응 줄바꿈 BEGIN-->
-                <!-- <thead style="border-top: 1px solid #dee2e6;">
-                  <tr><th>Address</th></tr>
-                  <tr><th>Shares</th></tr>
-                  <tr><th>Invalid shares</th></tr>
-                  <tr><th>Efficiency</th></tr>
-                  <tr><th>Hashrate</th></tr>
-                </thead> -->
+
 
 
                 {{ for(var worker in it.stats.pools[pool].workers) { }}
                    {{var workerstat = it.stats.pools[pool].workers[worker];}}
-                    <tr class="table table-hover">
-                      <!-- 모바일대응 줄바꿈 BEGIN -->
-                        <tr><td>
-                          <font size="2">Address:</font>
-                          <font size="2"><tt><a href="/workers/{{=worker.split('.')[0]}}">{{=worker}}</a></tt></font>
-                          <!-- {{=worker}} -->
-                          <font size="2">&nbsp|&nbsp</font>
-                        <!-- </td></tr>
-                        <tr><td> -->
-                          <font size="2">Shares:</font>
-                          <font size="3"><tt>{{=Math.floor(workerstat.shares)}}</tt></font>
-                          <font size="2">&nbsp|&nbsp</font>
-                        <!-- </td></tr>
-                        <tr><td> -->
-                          <font size="2">Invalid shares:</font>
-                          <font size="3"><tt>{{=Math.floor(workerstat.invalidshares)}}</tt></font>
-                          <font size="2">&nbsp|&nbsp</font>
-                        <!-- </td></tr>
-                        <tr><td> -->
-                          <font size="2">Efficiency:</font>
-                          <font size="3"><tt>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}} </tt></font>
-                          <font size="2">&nbsp|&nbsp</font>
-                        <!-- </td></tr>
-                        <tr><td> -->
-                          <font size="2">Hashrate:</font>
-                          <font size="3"><tt>{{=workerstat.hashrateString}}</tt></font>
-                        </td></tr>
-                      <!-- 모바일대응 줄바꿈 END -->
+                    <tr class="table table-responsive">
+
+                        <tr>
+                          <th scope="row">3</th>
+                            <td>
+                                <!-- Address: -->
+                                <a href="/workers/{{=worker.split('.')[0]}}">{{=worker}}</a>
+                                <!-- {{=worker}} -->
+                            </td>
+                            <td>
+                                <!-- Shares: -->
+                                {{=Math.floor(workerstat.shares)}}
+                            </td>
+                            <td>
+                                <!-- Invalid shares: -->
+                                {{=Math.floor(workerstat.invalidshares)}}
+                            </td>
+                            <td>
+                                <!-- Efficiency: -->
+                                {{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}
+                            </td>
+                            <td>
+                                <!-- Hashrate: -->
+                                {{=workerstat.hashrateString}}
+                            </td>
+                        </tr>
+
                     </tr>
                 {{ } }}
             </table>
