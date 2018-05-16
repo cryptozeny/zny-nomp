@@ -1,4 +1,15 @@
 <style>
+#boxWelcome{
+    /* background-color: #ff9d03; */
+    /* color: white; */
+    margin: 18px;
+}
+#orangeHead{
+    background-color: #ff9d03;
+    color: white;
+    margin: 18px;
+}
+
     #topCharts {
         padding: 18px;
     }
@@ -7,21 +18,24 @@
         height: 280px;
     }
     .chartWrapper {
-        border: solid 1px #c7c7c7;
+        /* border: solid 1px #c7c7c7;
         border-radius: 5px;
         padding: 5px;
-        margin-bottom: 18px;
+        margin-bottom: 18px; */
+
+        margin: auto;
+        text-align:left;
+
     }
     .chartLabel {
-        font-size: 1.2em;
+        font-size: 1.4em;
         text-align: center;
-        padding: 4px;
+        /* padding: 4px; */
+
     }
     .chartHolder {
     }
-    table {
-        width: 100%;
-    }
+
 </style>
 
 
@@ -56,15 +70,17 @@
 
 
 
-<div id="topCharts">
+<div id="boxWelcome">
 {{ for(var pool in it.stats.pools) { }}
+
     <div class="chartWrapper">
         <div class="chartLabel">{{=it.stats.pools[pool].name}}</div>
-            <table class="table table-responsive">
+            <table class="table table-responsive table-hover table-striped w-100 d-block d-md-table">
 
               <thead class="thead-dark">
+              <!-- <thead id="orangeHead"> -->
                 <tr>
-                  <th>#</th>
+                  <!-- <th>#</th> -->
                   <th>Address</th>
                   <th>Shares</th>
                   <th>Invalid</th>
@@ -79,36 +95,38 @@
 
                 {{ for(var worker in it.stats.pools[pool].workers) { }}
                    {{var workerstat = it.stats.pools[pool].workers[worker];}}
-                    <tr class="table table-responsive">
+
+                    <!-- <tr class="table table-hover table-primary"> -->
 
                         <tr>
-                          <th scope="row">3</th>
+                            <!-- <td>Index</td> 안됨-->
                             <td>
                                 <!-- Address: -->
-                                <a href="/workers/{{=worker.split('.')[0]}}">{{=worker}}</a>
+                                <tt><a href="/workers/{{=worker.split('.')[0]}}">{{=worker}}</a></tt>
                                 <!-- {{=worker}} -->
                             </td>
                             <td>
                                 <!-- Shares: -->
-                                {{=Math.floor(workerstat.shares)}}
+                                <tt>{{=Math.floor(workerstat.shares)}}</tt>
                             </td>
                             <td>
                                 <!-- Invalid shares: -->
-                                {{=Math.floor(workerstat.invalidshares)}}
+                                <tt>{{=Math.floor(workerstat.invalidshares)}}</tt>
                             </td>
                             <td>
                                 <!-- Efficiency: -->
-                                {{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}
+                                <tt>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</tt>
                             </td>
                             <td>
                                 <!-- Hashrate: -->
-                                {{=workerstat.hashrateString}}
+                                <tt>{{=workerstat.hashrateString}}</tt>
                             </td>
                         </tr>
 
-                    </tr>
+                    <!-- </tr> -->
                 {{ } }}
             </table>
 
     </div>
+
 {{ } }}
